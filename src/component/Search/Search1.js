@@ -7,7 +7,6 @@ import {myProvider} from '../../provider';
  const Search = () => {
   const appContext = useContext(myProvider)
    const {recipes, setQuery} = appContext
-   
    const [search, setSearch] = useState('');
 
    const getSearch = e =>{

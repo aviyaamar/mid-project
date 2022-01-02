@@ -2,31 +2,26 @@ import { useState } from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import axios from 'axios'
 
-
 const clientId = '707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com'
   
 function Login() {
-
   const [user, setUser] = useState('')
+
     const onSuccess =async (res) => {
-      const {profileObj} =res 
-      
+      const {profileObj} = res 
       try{
-        const {data} = axios.get('')
-        const index = data.findIndex(user=>user.id===profileObj.googleId)// index || -1
+        const {data} = axios.get(`https://61c4bbb0f1af4a0017d99775.mockapi.io/users`)
+        const index = data.find(user=>user.id===profileObj.googleId)// index || -1
         const User = {
           user: res.profileObj.googleId
          };
-        if(index===-1){
+        if(!index){
           await axios.post( `https://61c4bbb0f1af4a0017d99775.mockapi.io/users`, User);
         }
         setUser(User)
       }catch(e){
         console.log(e)
       }
-
-
-
      console.log('Login Success: currentUser:', res.profileObj);
     
     };
@@ -44,8 +39,6 @@ function Login() {
       clientId,
       isSignedIn: true,
       accessType: 'offline',
-      // responseType: 'code',
-      // prompt: 'consent',
       redirectUri: "http://localhost:3000/"
 
     });
@@ -53,7 +46,6 @@ function Login() {
     return (
       <button onClick={signIn} className="button">
         <img src="icons/google.svg" alt="google login" className="icon"></img>
-  
         <span className="buttonText">Sign in with Google</span>
       </button>
     );

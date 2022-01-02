@@ -11,6 +11,7 @@ function Provider({ children }) {
     const [recipes, setRecipes] = useState([]); //stores recipes in array
     const [search, setSearch] = useState(''); //allows users to use search bar
     const [query, setQuery] = useState('Chocolate Cake'); //creates queries
+    const [favorites, setFavorites] = useState([])
     const URL= `https://api.edamam.com/search?q=${query}&app_id=${ID}&app_key=${API_KEY}`
 
     useEffect( () => {
@@ -23,7 +24,7 @@ function Provider({ children }) {
         console.log(response.data);
       };
 
-  
+ 
    
   return (
     <myProvider.Provider
@@ -34,8 +35,8 @@ function Provider({ children }) {
         setSearch,
         query, 
         setQuery,
-
-       
+        favorites, 
+        setFavorites, 
       }}
     >
       {children}
