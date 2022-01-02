@@ -9,16 +9,25 @@ function Login() {
 
   const [user, setUser] = useState('')
     const onSuccess =async (res) => {
-      const User = {
-        user: res.profileObj.googleId
-       };
-        await axios.post( `https://61c4bbb0f1af4a0017d99775.mockapi.io/users`, User);
-       setUser(User)
+      const {profileObj} =res 
+      
+      try{
+        const {data} = axios.get('')
+        const index = data.findIndex(user=>user.id===profileObj.googleId)// index || -1
+        const User = {
+          user: res.profileObj.googleId
+         };
+        if(index===-1){
+          await axios.post( `https://61c4bbb0f1af4a0017d99775.mockapi.io/users`, User);
+        }
+        setUser(User)
+      }catch(e){
+        console.log(e)
+      }
+
+
+
      console.log('Login Success: currentUser:', res.profileObj);
-    
-      // alert(
-      //   `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-      // );
     
     };
   
