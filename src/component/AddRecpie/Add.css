@@ -1,0 +1,20 @@
+.input{
+    border: 1px solid gainsboro;
+    width: 40%;
+    height: 40px;
+    padding: 10px;
+}
+.add{
+    padding: 20px;
+}
+.btn_add{
+    border: none;
+    border-radius: 50%;
+    padding: 20px;
+    color:white;
+    background-color:#ffe0c0 ;
+    
+}
+.icon{
+
+}

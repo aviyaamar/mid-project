@@ -3,7 +3,7 @@ import Recipe from '../Recipe/Recipe';
 import './Search.css'
 import {myProvider} from '../../provider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare, faSearch } from '@fortawesome/fontawesome-free-solid'
+import { faSearch } from '@fortawesome/fontawesome-free-solid'
 
 
 
