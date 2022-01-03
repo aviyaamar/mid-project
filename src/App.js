@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useContext } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route ,Switch} from 'react-router-dom';
 import HomePage from './component/Homepage/HomePage.js'
 import Navbar from './component/Navbar/Navbar'
 // import Login from './component/Login/Login';
@@ -21,13 +21,15 @@ function App() {
       <BrowserRouter>
       <Navbar/>
       {/* <Login/> */}
-      <Route path='/' exac/>
-      <Route path='/component/HomePage' exac component={HomePage}/>
-      <Route path='/component/favorite' exac  component={favorite}/>
-      <Route path='/component/Recipe' exac  component={Recipe}/>
-      <Route path='/component/Search' exac  component={Search1}/>
+      <Switch>
+      <Route path='/'  exact component={HomePage}/>
+      <Route path='/component/HomePage' exact component={HomePage}/>
+      <Route path='/component/favorite' exact  component={favorite}/>
+      <Route path='/component/Recipe' exact  component={Recipe}/>
+      <Route path='/component/Search' exact  component={Search1}/>
       <Route path='/component/Details/:id' exact component={Details}/>   
-      <Route path='/component/Add' exac  component={Add}/>
+      <Route path='/component/Add' exact  component={Add}/>
+      </Switch>
       </BrowserRouter>
     </div>
     </Provider>

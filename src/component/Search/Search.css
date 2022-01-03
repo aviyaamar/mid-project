@@ -4,6 +4,25 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
   
+  }
+  .search-form{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+  }
+  .search-bar{
+    margin: 20px;
+    width: 30%;
+    height: 3rem;
+    border: none;
+    border-radius: 1.555rem;
+    background-color: rgb(191, 191, 191);
+  
+  }
+  .search-button{
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    padding-left: 250px;
   }

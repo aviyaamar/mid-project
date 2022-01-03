@@ -14,7 +14,7 @@ function Provider({ children }) {
     const [favorites, setFavorites] = useState([])
     const URL= `https://api.edamam.com/search?q=${query}&app_id=${ID}&app_key=${API_KEY}`
 
-    useEffect( () => {
+    useEffect(() => {
         getRecipes();
       }, [query]); //updates afetr form submitted
     

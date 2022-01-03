@@ -2,9 +2,13 @@ import React, { useContext, useState} from 'react';
 import Recipe from '../Recipe/Recipe';
 import './Search.css'
 import {myProvider} from '../../provider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckSquare, faSearch } from '@fortawesome/fontawesome-free-solid'
 
 
- const Search = () => {
+
+
+ const Search1 = () => {
   const appContext = useContext(myProvider)
    const {recipes, setQuery} = appContext
    const [search, setSearch] = useState('');
@@ -24,6 +28,7 @@ import {myProvider} from '../../provider';
          ingredients={item.recipe.ingredients}
          id = {extractIdFromUri(item.recipe.uri)}
          uri = {item.recipe.uri}
+         totalTime ={item.recipe.totalTime}
         />
          
     })
@@ -37,11 +42,12 @@ const updateSearch = e => {
 }
   return(
         <div className="App">
-          { <form className="search-form" onSubmit={getSearch}>
-            <input type="text" className="search-bar" value={search} onChange={updateSearch}/>
-            <button type="submit" className="search-button">Search</button>
-          </form> }
-           <div className="recipes">
+           <form className="search-form" onSubmit={getSearch}>
+            <input
+             type="text" className="search-bar" value={search} onChange={updateSearch}  />
+            <div type="submit" className="search-button"><FontAwesomeIcon className='icon' icon={faSearch} /> </div>
+          </form> 
+          <div className="recipes">
           {displayData()}
           </div>
           
@@ -52,5 +58,5 @@ const updateSearch = e => {
     
     }
     
- export default Search
+ export default Search1
  

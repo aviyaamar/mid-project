@@ -1,16 +1,18 @@
-import React, { useState, useContext } from 'react';
-import RecipeDetails from '../RecipeDetails/RecipeDetails';
+import React, {useContext } from 'react';
 import { Link} from 'react-router-dom';
 import './Recipe.css'
 import {myProvider} from '../../provider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock as farClock } from '@fortawesome/free-regular-svg-icons'
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 
-
-
-const Recipe = ({title, calories, image, ingredients, key, uri,id,  button}) => {
+const Recipe = ({title, calories, image, key,id, totalTime}) => {
     const appContext = useContext(myProvider)
-
-    const [display, setDisaply] = useState(false)
     const {favorites, setFavorites,recipes } = appContext
+
+     let titleX = title.split(' ').slice(0, 2).join(' ')
+    let caloriesX = parseInt(calories);
+ 
 
     const addToWishList = ( id) =>{
         const checkIfExsit = favorites.find((item)=> item.id === id)
@@ -24,16 +26,15 @@ const Recipe = ({title, calories, image, ingredients, key, uri,id,  button}) => 
          console.log(favorites)
       }
      
+   
+     
     return(
         <div className='recipe_link' key={key}>
             <img src={image} alt=""  className='img'/>
-            {/* <h1 className='title'>{title}</h1> */}
-            <p>Calories: {calories}</p>
-            <Link to={{pathname: `/component/details/${id}` ,state:{id}}}>{title} </Link>
-             <button className='btn-search' onClick={()=>setDisaply(!display)}>showRecipe</button>
-             {display && <RecipeDetails ingredients={ingredients}/>}
-             <button className='btn-search' onClick={(e)=>addToWishList(id)} >Add to favorites</button>
-            
+            <Link to={{pathname: `/component/details/${id}` }}> {titleX}</Link>
+            <p>Calories: {caloriesX} | <span>{totalTime} <FontAwesomeIcon icon={farClock}/></span> 
+            <span> <button className='heart-icon' onClick={(e)=>addToWishList(id)}><FontAwesomeIcon className='iconHeart' icon={farHeart}/></button></span>
+            </p>
         </div>
     );
 }
