@@ -1,6 +1,8 @@
 import React, {useEffect, useState } from "react";
 import {useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
+import './details.css'
+
 
 const Details = () => {
   const history = useHistory()
@@ -26,30 +28,40 @@ const Details = () => {
                 console.log(e.message) 
         }
     }
-
-   
-
     const mapping = () => {
       return ing.map((item) => {
-        return <div key={item.yiel}><li>{item.text}</li></div>;
+        return <div key={item.yiel}><li style={{ listStyleType:'circle' }}>{item.text}</li></div>;
       });
     };
   return (
-    <div>
-      <div className="recipes">
-          {result&&<div>
-            <h2>{result.label}</h2>
-            <div>{result.cuisineType&&result.cuisineType.map(e=><h4>{e}</h4>)}</div>
-            <img src={result.image} alt={result.label}></img>
-            </div>}
-            <div><ul>{mapping()}</ul></div>
-           <a href={result.url}>preparation instruction</a>
-     
-          </div>
-          <button onClick={() => history.goBack()}>Back</button>
-
+    <div className="recipe_container">
+    <div className="recipes_deatails">
+      <div  className="recipes_image"> 
+      <img className="img_deatail" src={result.image} alt={result.label}></img>
       </div>
-  
+     <div className="details">
+     <div className="btn_back"> <button  className="btn" onClick={() => history.goBack()}> <i class="fas fa-long-arrow-alt-left"></i>Return to recipes</button> </div>
+        {result&&<div> <h2 className="details_title">{result.label}</h2> </div>}
+            <div className="cusine_deatail">
+              <h3 className= "cusine">Cuisine Type: </h3>{result.cuisineType&&result.cuisineType.map(e=><span>{e} |  </span>)}</div>  
+              <div className="cusine_deatail">
+              <h3 className= "cusine">Meal Type: </h3>{result.cuisineType&&result.mealType.map(e=><span>{e}   </span>)}</div>  
+            </div> 
+            
+      </div>
+       <div className="ingredients">
+         <div className="ingredients_length">
+         <h1 className="cusine">Ingredients</h1>
+       <div className="ingredients_li"><ul>{mapping()}</ul></div>
+       </div>
+       <div className="ingredients_prepartion">
+       <h1 className="cusine">Preparation</h1>
+       <p className="ingredients_pa">This recipe is provided by <span className="source">{result.source}</span> . You can view the detailed preparation instructions by clicking the following link</p>
+      <a className="sourceLink" href={result.url}>PREPARATION INSTRUCTION</a>
+      </div>
+      </div>
+      </div>
+      
   )
 }
 

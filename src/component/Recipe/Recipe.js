@@ -30,11 +30,15 @@ const Recipe = ({title, calories, image, key,id, totalTime}) => {
      
     return(
         <div className='recipe_link' key={key}>
+          <div className='recipe_content'>
             <img src={image} alt=""  className='img'/>
-            <Link to={{pathname: `/component/details/${id}` }}> {titleX}</Link>
-            <p>Calories: {caloriesX} | <span>{totalTime} <FontAwesomeIcon icon={farClock}/></span> 
+            <Link className='recipe_title' to={{pathname: `/component/details/${id}` }}> {titleX}</Link>
+            <div className='recipe_details'>
+            <p> <span className='calories'>{caloriesX}</span> <span className='recipe_cal'>Calories</span> <span className='line'>|</span> <span>{totalTime} <FontAwesomeIcon icon={farClock}/></span> 
             <span> <button className='heart-icon' onClick={(e)=>addToWishList(id)}><FontAwesomeIcon className='iconHeart' icon={farHeart}/></button></span>
             </p>
+            </div>
+            </div>
         </div>
     );
 }

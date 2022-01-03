@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Pushster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pushster&display=swap');
+
+
 .recipe_link{
   display: flex;
   flex-direction: column; 
@@ -11,10 +15,7 @@
   padding: 3rem;
   box-shadow: 0.5rem 0.5rem 0.5rem #aaa;
 }
-.recipe_link :hover{
-  color: rgb(199, 32, 171);
-  opacity: 1
-}
+
 
 .img{
   height: 300px;
@@ -28,4 +29,35 @@
 }
 .iconHeart{
   color:red
+}
+.recipe_title {
+  font-size: 2.3rem;
+  font-family: 'Pushster', cursive;
+  color: rgb(180, 179, 179); 
+  text-decoration: none;
+
+}
+.recipe_title:hover{
+  color:hotpink
+}
+.calories{
+  font-size: 25px;
+  font-family: 'Pushster', cursive;  
+  color:#CCAF9B;
+
+}
+.recipe_details{
+  padding-top: 25px;
+}
+.recipe_cal{
+  font-size: 17px;
+  font-family: 'Permanent Marker', cursive;  
+}
+.line{
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color:#CCAF9B
+
 }

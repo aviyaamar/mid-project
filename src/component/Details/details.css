@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Permanent+Marker&family=Pushster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mali:wght@200;300;600&family=Permanent+Marker&family=Pushster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+
+  }
+  .recipe_container{
+      width: 90%;
+      height: 100;
+      
+  }
+  .recipes_deatails{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .recipes_image{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 30px 50px ;
+    
+ 
+  }
+  .img_deatail{
+    width: 400px;
+    height: 400px;
+    
+  }
+  .details{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 30px 20px ;
+      
+  }
+  .btn{
+    border: none;
+    width: 200px;
+    height: 50px;
+    font-family: 'Mali', cursive;
+    font-weight:900;
+    font-size: 1rem;
+
+  }
+  .ingredients{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-left: 50px;
+
+  }
+  .details_title{
+      font-size: 2rem;
+      font-family: 'Luckiest Guy', cursive;
+      font-weight: 500;
+      margin-top: 10px;
+      color: #e8ada4;
+  }
+  .cusine{
+      margin-top: 15px;
+      font-size: 25px;
+      font-family: 'Merienda', cursive;
+      color: #49b8b0;
+  }
+  .cusine_deatail{
+    font-size: 25px;
+    padding-bottom: 25px;
+  }
+  .sourceLink{
+      border: 1px solid none;
+      text-decoration: none;
+      background-color:#d2f7e3 ;
+      padding: 20px 30px;
+      border-radius: 50px;
+      font-size: 25px;
+      color: #e8ada4;
+      font-weight: 900;
+      font-family: 'Mali', cursive;
+
+  }
+  .ingredients_pa{
+      padding: 30px;
+      font-size: 1.3rem;
+      font-family: 'Russo One', sans-serif;
+  }
+  .source{
+    color: #e8ada4;
+}
+.ingredients_li{
+    font-size: 20px;
+    font-family: 'Cinzel', serif;
+    font-weight:200;
+  
+
+}

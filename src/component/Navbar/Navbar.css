@@ -3,9 +3,9 @@
     flex-wrap:  wrap;
     justify-content: space-between;
     align-items:  center;
-    background: palevioletred;
+    background: white;
     padding: 0 2rem;
-    height: 50px;
+    height: 60px;
 }
 .linksNav{
   display: flex;
@@ -24,11 +24,13 @@
 }
 .link:hover{
     border-radius: 5px;
-    color: white;
+    color: #be897f;
 }
 .logo{
     background-image: url('./logo.png');
     background-size: cover;
-    width:50px;
+    width:100px;
     height: 50px;
+    margin-right:  50px;
+
 }
