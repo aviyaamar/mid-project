@@ -3,14 +3,14 @@ import {useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
 import './details.css'
 import {myProvider} from '../../provider';
-import Favorite from "../Favorit/Favorite";
 
 const Details = () => {
   const appContext = useContext(myProvider)
-  const {favorites, setFavorites,recipes } = appContext
+  const {recipes } = appContext
   const history = useHistory()
   const [result, setResult] = useState([]);
   const [ing, setIng] = useState([]);
+  const {favorites, setFavorites}= useContext(myProvider)
 
     const { id } = useParams();  
     const ID = '853912c2'
@@ -43,34 +43,20 @@ const Details = () => {
       return uri.split('#recipe_').pop()
     }
 
-    const addToWishList = ( event) =>{
-      console.log('event.currentTarget.dataset.id', event.currentTarget.dataset.id);
-      console.log(recipes)
-      let uriId = extractIdFromUri(recipes[0].recipe.uri)
-      console.log(uriId)
-      const checkIfExsit = favorites.find((item)=> item.id === event.currentTarget.dataset.id)
-      if(!checkIfExsit){
-        const product = recipes.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
-        setFavorites([...favorites, product])
-       }
-       else{
-         setFavorites(favorites.filter((item)=> item.id !== event.currentTarget.dataset.id))
-       }
-       console.log(favorites)
+    // const addToWishList = ( event) =>{
+    //   const checkIfExsit = favorites.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
+    //   if(!checkIfExsit){
+    //     const product = recipes.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
+    //     setFavorites([...favorites, product])
+    //    }
+    //    else{
+    //      const newFavorite = favorites.filter((item)=> extractIdFromUri(item.recipe.uri) !==event.currentTarget.dataset.id)
+    //      setFavorites(newFavorite)
+    //    }
+    //    console.log(favorites)
        
-    }
+    // }
      
-    const displayFavorties = () =>{
-      return favorites.map((item)=>{
-       return <Favorite 
-        id={item.recipe.id}
-        image={item.recipe.image}
-        label={item.recipe.label}
-        calories={item.recipe.calories}
-        />
-      })
-    }
-   
   return (
     <div className="recipe_container">
     <div className="recipes_deatails">
@@ -79,7 +65,7 @@ const Details = () => {
       </div>
      <div className="details">
      <div className="btn_back"> <button  className="btn" onClick={() => history.goBack()}> <i class="fas fa-long-arrow-alt-left"></i>Return to recipes</button> </div>
-     <div className="btn_back"> <button  className="btn" data-id={id} onClick={(e)=>addToWishList(e)}> <i class="fas fa-long-arrow-alt-left"></i>save Item</button> </div>
+     {/* <div className="btn_back"> <button  className="btn" data-id={id} onClick={addToWishList}> <i class="fas fa-long-arrow-alt-left"></i>save Item</button> </div> */}
         {result&&<div> <h2 className="details_title">{result.label}</h2> </div>}
             <div className="cusine_deatail">
               <h3 className= "cusine">Cuisine Type: </h3>{result.cuisineType&&result.cuisineType.map(e=><span>{e} |  </span>)}</div>  
@@ -99,6 +85,7 @@ const Details = () => {
       <a className="sourceLink" href={result.url}>PREPARATION INSTRUCTION</a>
       </div>
       </div>
+     
       </div>
       
   )

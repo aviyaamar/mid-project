@@ -5,12 +5,9 @@ import {myProvider} from '../../provider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/fontawesome-free-solid'
 
-
-
-
  const Search1 = () => {
   const appContext = useContext(myProvider)
-   const {recipes, setQuery} = appContext
+   const {recipes, setQuery, recipesFromMock} = appContext
    const [search, setSearch] = useState('');
 
    const getSearch = e =>{
@@ -40,6 +37,19 @@ import { faSearch } from '@fortawesome/fontawesome-free-solid'
 const updateSearch = e => {
   setSearch(e.target.value);
 }
+
+const displayDataFromMock = () =>{
+  return recipesFromMock.map((item)=>{
+      return <Recipe
+      key={item.id}
+      title={item.addName} 
+       calories={item.addCalories} 
+       image={item.addImage}
+       id = {item.id}
+      />
+       
+  })
+}
   return(
         <div className="App">
            <form className="search-form" onSubmit={getSearch}>
@@ -49,6 +59,7 @@ const updateSearch = e => {
           </form> 
           <div className="recipes">
           {displayData()}
+          {displayDataFromMock()}
           </div>
           
         </div> 

@@ -3,9 +3,10 @@
     flex-wrap:  wrap;
     justify-content: space-between;
     align-items:  center;
-    background: white;
     padding: 0 2rem;
-    height: 60px;
+    height: 5%;
+    width: 100%;
+    
 }
 .linksNav{
   display: flex;

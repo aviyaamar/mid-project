@@ -8,33 +8,43 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 14rem;
-  height: 100%;
+  width: 20rem;
+  /* height: 100%; */
   max-width: 300px;
-  margin: 2rem;
-  padding: 3rem;
+  margin: 3rem;
+  padding: 4rem;
   box-shadow: 0.5rem 0.5rem 0.5rem #aaa;
 }
 
 
 .img{
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
 }
 
 .heart-icon{
   border: none;
   background-color: transparent;
+  padding-left:20px;
+  width: 100px;
+  height: 50px;
+
+  
  
 }
 .iconHeart{
-  color:red
+  color:red;
+  background-color: transparent;
+  height: 50px;
+  width: 20px;
+
 }
 .recipe_title {
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-family: 'Pushster', cursive;
   color: rgb(180, 179, 179); 
   text-decoration: none;
+  
 
 }
 .recipe_title:hover{

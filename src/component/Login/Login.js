@@ -13,7 +13,8 @@ function Login() {
         const {data} = axios.get(`https://61c4bbb0f1af4a0017d99775.mockapi.io/users`)
         const index = data.find(user=>user.id===profileObj.googleId)// index || -1
         const User = {
-          user: res.profileObj.googleId
+          user: res.profileObj.googleId,
+          name: res.profileObj.name
          };
         if(!index){
           await axios.post( `https://61c4bbb0f1af4a0017d99775.mockapi.io/users`, User);
