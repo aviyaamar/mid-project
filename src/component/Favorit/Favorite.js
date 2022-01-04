@@ -1,17 +1,45 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {myProvider}from '../../provider'
 
-const Favorite = ({id, image, label, calories}) => {
+
+const Favorite = () => {
+  const {favorites,setFavorites}=useContext(myProvider)
+
+
+  const  extractIdFromUri = (uri)=> {
+    return uri.split('#recipe_').pop()
+  }
+  
+
+
+   const displayData = ()=>{
+     return favorites.map((item)=>{
+       return (<div key={extractIdFromUri(item.recipe.uri)}>
+         
+        <h1>{item.recipe.label}</h1> 
+        <img src= {item.recipe.image} alt={item.recipe.label}/> 
+         <p>{item.recipe.calories}</p>
+         
+         <button  onClick={()=>onRemove(extractIdFromUri(item.recipe.uri))}>remove</button>
+
+
+       </div>)
+     })
+   }
+   const onRemove = (uri) =>{
+    const newList = favorites.filter((item) => extractIdFromUri(item.recipe.uri) !== uri);
+
+    setFavorites(newList);
+
+   }
     return (
-        <div className='recipe_link' key={id}>
-        <div className='recipe_content'>
-          <img src={image} alt=""  className='img'/>
-          <p>{label}</p>
-          <div className='recipe_details'>
-          <p> <span className='calories'>{calories}</span> </p>
-          </div>
-          </div>
-      </div>
-    )
+    <div>
+    {displayData()}
+     </div>
+
+         )
+        
 }
 
 export default Favorite
+         
