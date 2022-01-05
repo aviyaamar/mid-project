@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-use-before-define */
 import React, { useState, useEffect, createContext } from 'react'
 import axios from 'axios';
 
@@ -15,7 +17,15 @@ function Provider({ children }) {
     const [query, setQuery] = useState('Chocolate Cake'); //creates queries
     const [favorites, setFavorites] = useState([])
     const URL= `https://api.edamam.com/search?q=${query}&app_id=${ID}&app_key=${API_KEY}`
-
+  
+    const getRecipes = async () => {
+      const response = await axios.get(URL)
+      setRecipes(response.data.hits);
+      // console.log(response.data);
+    };
+    useEffect(() => {
+      getRecipes();
+    }, [ query]); //updates afetr form submitted
 
     const  extractIdFromUri = (uri)=> {
       return uri.split('#recipe_').pop()
@@ -61,16 +71,10 @@ function Provider({ children }) {
 
   }
 
-    useEffect(() => {
-        getRecipes();
-      }, [query]); //updates afetr form submitted
+  
     
   
-      const getRecipes = async () => {
-        const response = await axios.get(URL)
-        setRecipes(response.data.hits);
-        // console.log(response.data);
-      };
+    
 
       useEffect(()=>{
         const getAllRecipe = async() =>{
