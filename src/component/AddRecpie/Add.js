@@ -10,7 +10,8 @@ const Add = () => {
     const [addMake,  setAddMake] = useState('')
     const [addImage,  setAddImage] = useState('')
     const [addCalories,  setaAddCalories] = useState('')
-    const [submit, setSubmit]= useState(false)
+    const [addTime,  setAddTime] = useState('')
+    const [message, setAddMessage]= useState(false)
    
    const createRecipe = () =>{ 
        try{
@@ -19,7 +20,8 @@ const Add = () => {
             addIngredients, 
             addMake, 
             addCalories,
-            addImage
+            addImage, 
+            addTime
             
         })
         setAddName('')
@@ -27,25 +29,32 @@ const Add = () => {
         setAddMake('')
         setAddImage('')
         setaAddCalories('')
+        setAddTime('')
+        setAddMessage(true)
+        setTimeout(()=>{
+            setAddMessage(false)
+        }, 1000)
 
-       }catch(e){
+    }
+       catch(e){
            console.log(e);
 
        }
       
- 
    }
 
     return (
         <div className='add'>  
-            <input className='input' placeholder='Image' value={addImage} onChange={(e) => setAddImage(e.target.value)}></input><br/>
-            <input className='input' placeholder='Calories' value={addCalories} onChange={(e) => setaAddCalories(e.target.value)}></input><br/>
-            <input className='input'  placeholder='Name' value={addName} onChange={(e) => setAddName(e.target.value)}></input><br/>
-            <input className='input'  placeholder='Ingredients'  value={addIngredients} onChange={(e) => setAddIngredients(e.target.value)}></input><br/>
-            <input className='input' placeholder='Preparation' value={addMake} onChange={(e) => setAddMake(e.target.value)}></input><br/>
-            <button className='btn_add' onClick={createRecipe}><FontAwesomeIcon className='icon' icon={faPlus}/></button><br/>
-            <div>{ submit}</div>
-      
+            <input className='input' type="text" placeholder='Image' value={addImage} onChange={(e) => setAddImage(e.target.value)}></input><br/>
+            <input className='input' type="number" placeholder='Calories' value={addCalories} onChange={(e) => setaAddCalories(e.target.value)}></input><br/>
+            <input className='input' type="text" placeholder='Name' value={addName} onChange={(e) => setAddName(e.target.value)}></input><br/>
+            <input className='input' type="text"  placeholder='Ingredients'  value={addIngredients} onChange={(e) => setAddIngredients(e.target.value)}></input><br/>
+            <input className='input' type="text" placeholder='Preparation' value={addMake} onChange={(e) => setAddMake(e.target.value)}></input><br/>
+            <input className='input' type="text" placeholder='Time' value={addTime} onChange={(e) => setAddTime(e.target.value)}></input><br/>
+            <button  className='btn_add' onClick={createRecipe} >
+             <FontAwesomeIcon className='icon' icon={faPlus}/></button><br/>
+             {message && (
+            <div className="message"> Item uploaded!  </div>)}
        </div>
     )
 }

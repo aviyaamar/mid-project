@@ -5,14 +5,18 @@
     flex-wrap: wrap;
     justify-content: center;
   
+  
   }
   .search-form{
     display: flex;
     align-items: center; 
     justify-content: center;
+    margin-bottom: 20px;
+    position:relative;
+  
   }
   .search-bar{
-    margin: 20px;
+    margin-top :70px;
     width: 30%;
     height: 3rem;
     border: none;
@@ -21,6 +25,7 @@
   
   }
   .search-button{
+    margin-top :70px;
     display: flex;
     justify-content: flex-start;
     position: absolute;

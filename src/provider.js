@@ -45,7 +45,7 @@ function Provider({ children }) {
   }
   
   const addToWishList = async( id) =>{
-    const checkIfExsit = favorites.find((item)=>item.id === id)
+    const checkIfExsit = favorites.find((item)=>extractIdFromUri(item.recipe.uri)=== id)
     if(!checkIfExsit){
       const product = recipes.find((item)=> extractIdFromUri(item.recipe.uri)=== id)
       const {data} =  await axios.post(`https://61c4bbb0f1af4a0017d99775.mockapi.io/recipes`, product)

@@ -4,6 +4,7 @@ import './Search.css'
 import {myProvider} from '../../provider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/fontawesome-free-solid'
+import axios from 'axios';
 
  const Search1 = () => {
   const appContext = useContext(myProvider)
@@ -39,11 +40,18 @@ const updateSearch = e => {
   setSearch(e.target.value);
 }
 
-const remove = (id) =>{
-  const newList = recipesFromMock.filter((item) => item.id !== id);
-  setRecipesFromMock(newList);
+const onRemove =  async(id) =>{ 
+  try{
+    await axios.delete(`https://61c4bbb0f1af4a0017d99775.mockapi.io//users/${id}`)
+    const newList = recipesFromMock.filter((item) =>item.id !== id);
+    setRecipesFromMock(newList);
+  }
+  catch(e){
+    console.log(e);
+  }
+}
 
- }
+
 const displayDataFromMock = () =>{
   return recipesFromMock.map((item)=>{
       return <Recipe
@@ -52,7 +60,7 @@ const displayDataFromMock = () =>{
       calories={item.addCalories} 
       image={item.addImage}
       id = {item.id}
-      remove ={()=>remove(item.id)}
+      remove ={()=>onRemove(item.id)}
      />
        
   })

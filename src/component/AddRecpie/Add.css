@@ -10,7 +10,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
+    width: 90%;
+    height: 90vh;
+    
+    
 }
 .btn_add{
     border: none;

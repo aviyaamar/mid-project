@@ -1,19 +1,15 @@
-.favoires{
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 .favoritItem{
-    display: flex;
-  flex-direction: column; 
+  padding-top: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top:8%;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  width: 22rem;
-  max-width: 300px;
-  margin: 3rem;
-  padding: 4rem;
-  box-shadow: 0.5rem 0.5rem 0.5rem #aaa;
+
+  
 }
 .delete{
  height: 40px;
@@ -26,10 +22,15 @@ left: 35%;
 
 }
 .details_Favorite{
-    display: flex;
-    flex-direction: row;
-    
+  display: flex;  
 }
-.icon{
-    
+.titleFav{
+  text-align: center;
+  position: absolute;
+  top:10%;
+  left: 45%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+
 }
