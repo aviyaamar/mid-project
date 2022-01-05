@@ -23,11 +23,11 @@ function App() {
       {/* <Login/> */}
       <Switch>
       <Route path='/'  exact component={HomePage}/>
-      <Route path='/component/favorite' exact  component={favorite}/>
-      <Route path='/component/Recipe' exact  component={Recipe}/>
-      <Route path='/component/Search' exact  component={Search1}/>
-      <Route path='/Component/Details/:id' exact component={Details}/>   
-      <Route path='/component/Add' exact  component={Add}/>
+      <Route path='/favorite' exact  component={favorite}/>
+      <Route path='/Recipe' exact  component={Recipe}/>
+      <Route path='/Search' exact  component={Search1}/>
+      <Route path='/Details/:id' exact component={Details}/>   
+      <Route path='/Add' exact  component={Add}/>
       </Switch>
       </BrowserRouter>
     </div>

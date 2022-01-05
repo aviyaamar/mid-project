@@ -19,7 +19,7 @@ import axios from 'axios';
    const displayData = () =>{
     return recipes.map((item)=>{
         return <Recipe
-        key={extractIdFromUri(item.recipe.uri)}
+        key={item.recipe.uri}
         title={item.recipe.label} 
          calories={item.recipe.calories} 
          image={item.recipe.image}

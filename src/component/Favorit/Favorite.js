@@ -7,8 +7,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 
 const Favorite = () => {
-  const {favorites,setFavorites, onRemove}=useContext(myProvider)
-  const [message , setMessage ] = useState([false])
+  const {favorites, onRemove}=useContext(myProvider)
 
 
   
@@ -21,7 +20,7 @@ const Favorite = () => {
    const displayData = ()=>{
    
       return favorites.map((item)=>{
-        let caloriesX = parseInt(item.recipe.calories);
+        // let caloriesX = parseInt(item.recipe.calories);
         let titleX = item.recipe.label.split(' ').slice(0, 2).join(' ')
   
          return (<div key={extractIdFromUri(item.recipe.uri)}>
@@ -29,7 +28,7 @@ const Favorite = () => {
           <h1 className='title'>{titleX}</h1> 
           <img className='img' src= {item.recipe.image} alt={item.recipe.label}/> 
           <div className='details_Favorite'>
-           <p className='calories '>{caloriesX} <span className='recipe_cal' style={{color:'black'}}> calories</span></p>
+           <p className='calories '>{item.recipe.calories} <span className='recipe_cal' style={{color:'black'}}> calories</span></p>
            <button className='delete'  onClick={()=>onRemove(extractIdFromUri(item.recipe.uri))}><FontAwesomeIcon  style={{height:'25px', width:'25px' }} className='icon' icon={faTrashAlt}/></button>
            </div>
            </div>
@@ -56,4 +55,3 @@ const Favorite = () => {
 }
 
 export default Favorite
-         

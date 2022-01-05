@@ -9,9 +9,9 @@ const Navbar = () => {
                 <span className='logo'></span>
                 <div className='linksNav'>
                     {/* <Link className='link' to='/component/HomePage'>Home</Link> */}
-                    <Link className='link' to='/component/favorite'>Favorit Recipe</Link>
-                    <Link className='link' to='/component/Add'>Add Recipe</Link>
-                    <Link className='link' to='/component/Search'>Search</Link>
+                    <Link className='link' to='/favorite'>Favorit Recipe</Link>
+                    <Link className='link' to='/Add'>Add Recipe</Link>
+                    <Link className='link' to='/Search'>Search</Link>
                 </div>
             </nav>
         </section>

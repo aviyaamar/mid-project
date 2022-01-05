@@ -25,8 +25,8 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    margin: 30px 50px ;
-    
+    margin-left: 50px;
+    margin-top: 70px;
  
   }
   .img_deatail{
@@ -39,7 +39,9 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      margin: 30px 20px ;
+      margin-left: 50px;
+      margin-top: 50px;
+   
       
   }
   
@@ -51,6 +53,7 @@
      
   }
   .details_title{
+    display: block;
       font-size: 2rem;
       font-family: 'Luckiest Guy', cursive;
       font-weight: 500;

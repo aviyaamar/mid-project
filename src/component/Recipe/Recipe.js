@@ -9,7 +9,7 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 
 
 
-const Recipe = ({title, calories, image, key,id, totalTime, remove}) => {
+const Recipe = ({title, calories, image,id, totalTime, remove}) => {
     const appContext = useContext(myProvider)
     const { addToWishList } = appContext
     const [active, setActive] = useState(false)
@@ -24,10 +24,10 @@ const Recipe = ({title, calories, image, key,id, totalTime, remove}) => {
     const changeColor = active ? 'red' : 'grey'
 
     return(
-        <div className='recipe_link' key={key}>
+        <div className='recipe_link' key={id}>
           <div className='recipe_content'>
             <img src={image} alt=""  className='img'/>
-            <Link className='recipe_title'  to={{pathname: `/component/details/${id}` }}> {titleX}</Link>
+            <Link className='recipe_title'  to={{pathname: `/details/${id}` }}> {titleX}</Link>
             <div className='recipe_details'>
             <p> <span className='calories'>{caloriesX}</span> <span className='recipe_cal'>Calories</span></p> </div>
             <div className='iconss'>

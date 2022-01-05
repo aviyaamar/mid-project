@@ -6,6 +6,7 @@ import {myProvider} from '../../provider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons'
 import { faSave } from '@fortawesome/free-regular-svg-icons'
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -32,14 +33,14 @@ const Details = () => {
                 const {ingredients}=response.data.recipe;
                 setIng(ingredients)
                 setResult(response.data.recipe); 
-                console.log(response.data.recipe) 
+                // console.log(response.data.recipe) 
             } catch(e){
                 console.log(e.message) 
         }
     }
     const mapping = () => {
       return ing.map((item) => {
-        return <div key={item.yiel}><li style={{ listStyleType:'circle' }}>{item.text}</li></div>;
+        return <div key={uuidv4()}><li style={{ listStyleType:'circle' }}>{item.text}</li></div>;
       });
     };
 
@@ -77,9 +78,9 @@ const Details = () => {
 
         {result&&<div> <h2 className="details_title">{result.label}</h2> </div>}
             <div className="cusine_deatail">
-              <h3 className= "cusine">Cuisine Type: </h3>{result.cuisineType&&result.cuisineType.map(e=><span>{e} |  </span>)}</div>  
+              <h3 className= "cusine">Cuisine Type: </h3>{result.cuisineType&&result.cuisineType.map(e=><span key={uuidv4()}>{e} |  </span>)}</div>  
               <div className="cusine_deatail">
-              <h3 className= "cusine">Meal Type: </h3>{result.cuisineType&&result.mealType.map(e=><span>{e}   </span>)}</div>  
+              <h3 className= "cusine">Meal Type: </h3>{result.cuisineType&&result.mealType.map(e=><span key={uuidv4()}>{e}   </span>)}</div>  
             </div> 
             
       </div>

@@ -24,16 +24,16 @@ function Provider({ children }) {
     useEffect(()=>{
       const getWishList = async() =>{
           const {data} = await axios.get(`https://61c4bbb0f1af4a0017d99775.mockapi.io/recipes`)
-          console.log(data)
+          // console.log(data)
           setFavorites(data)
       }
       getWishList()
   },[])
   
   const onRemove =  async(uri) =>{ 
-    console.log(uri);
+    // console.log(uri);
     let removeItem = favorites.find((item)=> extractIdFromUri(item.recipe.uri)=== uri)  
-    console.log(removeItem); 
+    // console.log(removeItem); 
     try{
       await axios.delete(`https://61c4bbb0f1af4a0017d99775.mockapi.io/recipes/${removeItem.id}`)
       const newList = favorites.filter((item) => extractIdFromUri(item.recipe.uri) !== uri);
@@ -55,9 +55,9 @@ function Provider({ children }) {
        const newFavorite = favorites.filter((item)=> extractIdFromUri(item.recipe.uri) !==id)
        setFavorites(newFavorite)
      }
-     console.log(favorites)
-     console.log("recipes", recipes);
-     console.log(favorites);
+    //  console.log(favorites)
+    //  console.log("recipes", recipes);
+    //  console.log(favorites);
 
   }
 
@@ -69,13 +69,13 @@ function Provider({ children }) {
       const getRecipes = async () => {
         const response = await axios.get(URL)
         setRecipes(response.data.hits);
-        console.log(response.data);
+        // console.log(response.data);
       };
 
       useEffect(()=>{
         const getAllRecipe = async() =>{
             const {data} = await axios.get(`https://61c4bbb0f1af4a0017d99775.mockapi.io/users`)
-            console.log(data)
+            // console.log(data)
             setRecipesFromMock(data)
         }
         getAllRecipe()
