@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useContext} from 'react'
+import React, {useState } from 'react'
 import axios from 'axios'
 import './Add.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
