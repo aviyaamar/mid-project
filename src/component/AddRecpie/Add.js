@@ -12,24 +12,39 @@ const Add = () => {
     const [addCalories,  setaAddCalories] = useState('')
     const [submit, setSubmit]= useState(false)
    
-   const createRecipe = () =>{
-       axios.post(`https://61c4bbb0f1af4a0017d99775.mockapi.io/users`, {
-           addName, 
-           addIngredients, 
-           addMake, 
-           addCalories,
-           addImage
-       })
+   const createRecipe = () =>{ 
+       try{
+        axios.post(`https://61c4bbb0f1af4a0017d99775.mockapi.io/users`, {
+            addName, 
+            addIngredients, 
+            addMake, 
+            addCalories,
+            addImage
+            
+        })
+        setAddName('')
+        setAddIngredients('')
+        setAddMake('')
+        setAddImage('')
+        setaAddCalories('')
+
+       }catch(e){
+           console.log(e);
+
+       }
+      
+ 
    }
 
     return (
         <div className='add'>  
-            <input className='input' placeholder='Image' onChange={(e) => setAddImage(e.target.value)}></input><br/>
-            <input className='input' placeholder='Calories' onChange={(e) => setaAddCalories(e.target.value)}></input><br/>
-            <input className='input'  placeholder='Name' onChange={(e) => setAddName(e.target.value)}></input><br/>
-            <input className='input'  placeholder='Ingredients' onChange={(e) => setAddIngredients(e.target.value)}></input><br/>
-            <input className='input' placeholder='Preparation' onChange={(e) => setAddMake(e.target.value)}></input><br/>
+            <input className='input' placeholder='Image' value={addImage} onChange={(e) => setAddImage(e.target.value)}></input><br/>
+            <input className='input' placeholder='Calories' value={addCalories} onChange={(e) => setaAddCalories(e.target.value)}></input><br/>
+            <input className='input'  placeholder='Name' value={addName} onChange={(e) => setAddName(e.target.value)}></input><br/>
+            <input className='input'  placeholder='Ingredients'  value={addIngredients} onChange={(e) => setAddIngredients(e.target.value)}></input><br/>
+            <input className='input' placeholder='Preparation' value={addMake} onChange={(e) => setAddMake(e.target.value)}></input><br/>
             <button className='btn_add' onClick={createRecipe}><FontAwesomeIcon className='icon' icon={faPlus}/></button><br/>
+            <div>{ submit}</div>
       
        </div>
     )

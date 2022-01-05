@@ -1,0 +1,35 @@
+.favoires{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.favoritItem{
+    display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  width: 22rem;
+  max-width: 300px;
+  margin: 3rem;
+  padding: 4rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem #aaa;
+}
+.delete{
+ height: 40px;
+ width: 50px;
+ border: none;
+ background-color: transparent;
+ position: relative;
+left: 35%;
+ 
+
+}
+.details_Favorite{
+    display: flex;
+    flex-direction: row;
+    
+}
+.icon{
+    
+}

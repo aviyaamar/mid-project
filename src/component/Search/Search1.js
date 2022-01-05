@@ -7,7 +7,7 @@ import { faSearch } from '@fortawesome/fontawesome-free-solid'
 
  const Search1 = () => {
   const appContext = useContext(myProvider)
-   const {recipes, setQuery, recipesFromMock} = appContext
+   const {recipes, setQuery, recipesFromMock,setRecipesFromMock} = appContext
    const [search, setSearch] = useState('');
 
    const getSearch = e =>{
@@ -26,6 +26,7 @@ import { faSearch } from '@fortawesome/fontawesome-free-solid'
          id = {extractIdFromUri(item.recipe.uri)}
          uri = {item.recipe.uri}
          totalTime ={item.recipe.totalTime}
+      
         />
          
     })
@@ -38,15 +39,21 @@ const updateSearch = e => {
   setSearch(e.target.value);
 }
 
+const remove = (id) =>{
+  const newList = recipesFromMock.filter((item) => item.id !== id);
+  setRecipesFromMock(newList);
+
+ }
 const displayDataFromMock = () =>{
   return recipesFromMock.map((item)=>{
       return <Recipe
       key={item.id}
       title={item.addName} 
-       calories={item.addCalories} 
-       image={item.addImage}
-       id = {item.id}
-      />
+      calories={item.addCalories} 
+      image={item.addImage}
+      id = {item.id}
+      remove ={()=>remove(item.id)}
+     />
        
   })
 }

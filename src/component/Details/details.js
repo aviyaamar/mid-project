@@ -3,6 +3,11 @@ import {useParams, useHistory } from "react-router-dom";
 import axios from 'axios';
 import './details.css'
 import {myProvider} from '../../provider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleLeft } from '@fortawesome/free-regular-svg-icons'
+import { faSave } from '@fortawesome/free-regular-svg-icons'
+
+
 
 const Details = () => {
   const appContext = useContext(myProvider)
@@ -43,19 +48,19 @@ const Details = () => {
       return uri.split('#recipe_').pop()
     }
 
-    // const addToWishList = ( event) =>{
-    //   const checkIfExsit = favorites.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
-    //   if(!checkIfExsit){
-    //     const product = recipes.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
-    //     setFavorites([...favorites, product])
-    //    }
-    //    else{
-    //      const newFavorite = favorites.filter((item)=> extractIdFromUri(item.recipe.uri) !==event.currentTarget.dataset.id)
-    //      setFavorites(newFavorite)
-    //    }
-    //    console.log(favorites)
+    const addToWishList = ( event) =>{
+      const checkIfExsit = favorites.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
+      if(!checkIfExsit){
+        const product = recipes.find((item)=> extractIdFromUri(item.recipe.uri) === event.currentTarget.dataset.id)
+        setFavorites([...favorites, product])
+       }
+       else{
+         const newFavorite = favorites.filter((item)=> extractIdFromUri(item.recipe.uri) !==event.currentTarget.dataset.id)
+         setFavorites(newFavorite)
+       }
+       console.log(favorites)
        
-    // }
+    }
      
   return (
     <div className="recipe_container">
@@ -63,9 +68,13 @@ const Details = () => {
       <div  className="recipes_image"> 
       <img className="img_deatail" src={result.image} alt={result.label}></img>
       </div>
+
      <div className="details">
-     <div className="btn_back"> <button  className="btn" onClick={() => history.goBack()}> <i class="fas fa-long-arrow-alt-left"></i>Return to recipes</button> </div>
-     {/* <div className="btn_back"> <button  className="btn" data-id={id} onClick={addToWishList}> <i class="fas fa-long-arrow-alt-left"></i>save Item</button> </div> */}
+       <div className="buttonDetails">
+     <div className="btn_back"> <button  className="btn" onClick={() => history.goBack()}><FontAwesomeIcon icon={faArrowAltCircleLeft}/>  Return to recipes</button> </div>
+     <div className="btn_save"> <button  className="btn" data-id={id} onClick={addToWishList}> <FontAwesomeIcon icon={faSave}/> save Item</button> </div>
+     </div>
+
         {result&&<div> <h2 className="details_title">{result.label}</h2> </div>}
             <div className="cusine_deatail">
               <h3 className= "cusine">Cuisine Type: </h3>{result.cuisineType&&result.cuisineType.map(e=><span>{e} |  </span>)}</div>  
